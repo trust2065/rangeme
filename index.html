@@ -11,14 +11,15 @@
   </body>
   <script>
     (function() {
-      const url = "http://localhost:3000/getData";
+      const url =
+        "https://cors-anywhere.herokuapp.com/https://www.flickr.com/services/feeds/photos_public.gne?id=181830538@N07&tags=&tagmode=all&format=json";
       const method = "GET";
       const req = new XMLHttpRequest();
       req.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
-          document.querySelector(".result").innerHTML += this.responseText;
-          // document.querySelector(".result").innerHTML += "\r\n";
+          const data = JSON.parse(this.responseText.substring(15).slice(0, -1));
+          console.log(data);
+          console.log(data.items);
         }
       };
       req.open(method, url, true);
