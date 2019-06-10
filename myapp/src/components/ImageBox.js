@@ -7,7 +7,7 @@ import { FaExternalLinkAlt as Link } from "react-icons/fa";
 
 export default class ImageBox extends Component {
   render() {
-    const { author, date, fullImgUrl, tags, src, alt } = this.props;
+    const { searchTags, author, date, fullImgUrl, tags, src, alt } = this.props;
     return (
       <Div>
         <ImgAction>
@@ -21,6 +21,7 @@ export default class ImageBox extends Component {
           date={date}
           fullImgUrl={fullImgUrl}
           tags={tags}
+          searchTags={searchTags}
         />
       </Div>
     );
@@ -28,8 +29,7 @@ export default class ImageBox extends Component {
 }
 
 const StyledLink = styled(Link)`
-  padding-left: 30px;
-  padding-bottom: 30px;
+  padding: 10px 30px 30px 30px;
   color: white;
 `;
 
