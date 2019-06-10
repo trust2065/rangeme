@@ -1,0 +1,3 @@
+## node `proxyServer.js` to serve my proxy server in localhost://3000
+## use vscode extension "lite server" to serve index.html and request data from my proxy server localhost://3000/getData
+

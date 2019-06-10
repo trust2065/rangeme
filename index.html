@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flickr image searcher</title>
+  </head>
+  <body>
+    <div class="result"></div>
+  </body>
+  <script>
+    (function() {
+      function reqListener() {
+        console.log(this.responseText);
+        document.querySelector(".result").innerHTML += this.responseText;
+        // document.querySelector(".result").innerHTML += "\r\n";
+      }
+
+      const url = "http://localhost:3000/getData";
+      const method = "GET";
+      const req = new XMLHttpRequest();
+      req.addEventListener("load", reqListener);
+      req.open(method, url, true);
+      req.send();
+    })();
+  </script>
+</html>
