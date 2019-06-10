@@ -11,16 +11,16 @@
   </body>
   <script>
     (function() {
-      function reqListener() {
-        console.log(this.responseText);
-        document.querySelector(".result").innerHTML += this.responseText;
-        // document.querySelector(".result").innerHTML += "\r\n";
-      }
-
       const url = "http://localhost:3000/getData";
       const method = "GET";
       const req = new XMLHttpRequest();
-      req.addEventListener("load", reqListener);
+      req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          document.querySelector(".result").innerHTML += this.responseText;
+          // document.querySelector(".result").innerHTML += "\r\n";
+        }
+      };
       req.open(method, url, true);
       req.send();
     })();
